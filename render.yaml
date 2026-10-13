@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: sexypanda
+    runtime: node
+    plan: starter
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: DATABASE_PATH
+        value: /var/data/leaderboard.sqlite
+    disk:
+      name: leaderboard
+      mountPath: /var/data
+      sizeGB: 1

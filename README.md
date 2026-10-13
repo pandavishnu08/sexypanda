@@ -29,6 +29,15 @@ The current leaderboard uses unverified display names and client-reported
 results; it is intended for friendly play, not a secure or prize-based
 competition.
 
+## Deploy on Render
+
+This repository includes a Render Blueprint in `render.yaml`. In Render, create
+a new Blueprint Instance and connect this GitHub repository. Render will build
+the app with `npm ci`, start it with `npm start`, and use `/api/health` for its
+health check. The Blueprint provisions a persistent disk for the SQLite
+leaderboard; a paid instance plan is required for persistent disks. After
+deployment, share the service's HTTPS URL with both players.
+
 ## Included features
 
 - Layouts adapt to wide desktop screens, narrow phones, coarse touch input,
